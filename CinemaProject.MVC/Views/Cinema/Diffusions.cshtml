@@ -1,0 +1,35 @@
+﻿@model CinemaDetails
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h1>@Model.Name</h1>
+<h2>@Model.City @Model.ZipCode</h2>
+<h3>@Model.Street@((Model.Number is null)?"":$", {Model.Number}")</h3>
+
+<h5>@Model.Diffusion.DiffusionDate</h5>
+<ul>
+    @foreach (DiffusionListItem diffusion in Model.Diffusion.Diffusions)
+    {
+        <li>
+            <a asp-controller="Movie" asp-action="Details" asp-route-id="@diffusion.Id_Movie">
+                <div>
+                    @diffusion.Title - @diffusion.SubTitle (@diffusion.Duration)
+                </div>
+            </a>
+            <div>
+                <ul>
+                    @foreach (SubDiffusionListItem time in diffusion.DiffusionTimes)
+                    {
+                        <li>
+                            <div>
+                                @time.DiffusionTime
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </li>
+    }
+</ul>
