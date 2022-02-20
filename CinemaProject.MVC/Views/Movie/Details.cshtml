@@ -1,37 +1,39 @@
-﻿@using CinemaProject.MVC.Controllers; 
+﻿@using CinemaProject.MVC.Controllers;
 @model MovieDetails
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+
+@section CSS{
+    <link href="~/css/CinemaStyle.css" rel="stylesheet" />
 }
-<div>
-    <h1>@Model.Title</h1>
-    @if (!(Model.SubTitle is null))
-    {
-        <h2>@Model.SubTitle</h2>
-    }
-    <h2>Sorti en : @Model.ReleaseYear (@Model.Duration minutes)</h2>
-    @if (TempData.ContainsKey("Id_CinemaPlace"))
-    {
-        <a asp-controller="Cinema" asp-action="@nameof(CinemaController.Diffusions)" asp-route-id="@TempData["Id_CinemaPlace"]">
-            <div>
-                Séances
-            </div>
-        </a>
-    }
-    else
-    {
-        <a asp-controller="Cinema" asp-action="@nameof(CinemaController.Index)">
-            <div>
-                Sélectionnez un cinéma
-            </div>
-        </a>
-    }
-</div>
-<div>
-    <img src="~/assets/posters/@Model.PosterUrl" />
-</div>
-<div>
-    <p>@Model.Synopsis</p>
+
+<div class="movie">
+    <div class="movieText">
+        <div>
+            <h5>Sortie: @Model.ReleaseYear</h5>
+            <h1>@Model.Title@((Model.SubTitle is null)?"":" : "+Model.SubTitle)</h1>
+            @if (TempData.ContainsKey("Id_CinemaPlace"))
+            {
+                <a asp-controller="Cinema" asp-action="@nameof(CinemaController.Diffusions)" asp-route-id="@TempData["Id_CinemaPlace"]">
+                    <div class="btn btn-light">
+                        Séances
+                    </div>
+                </a>
+            }
+            else
+            {
+                <a asp-controller="Cinema" asp-action="@nameof(CinemaController.Index)">
+                    <div class="btn btn-light">
+                        Sélectionnez un cinéma
+                    </div>
+                </a>
+            }
+        </div>
+        <div>
+            <h5>(@((Model.Duration/60) + ":" + (Model.Duration%60)))</h5>
+            <p>@Model.Synopsis</p>
+        </div>
+    </div>
+        <div class="moviePoster">
+            <img src="~/assets/posters/@Model.PosterUrl" alt="@Model.Title" />
+        </div>
+    <hr />
 </div>

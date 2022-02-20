@@ -1,34 +1,75 @@
-﻿@model CinemaDetails
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@using CinemaProject.Common.Enums
+@model CinemaDetails
+@section CSS{
+    <link href="~/css/CinemaStyle.css" rel="stylesheet" />
 }
+
 <h1>@Model.Name</h1>
 <h2>@Model.City @Model.ZipCode</h2>
 <h3>@Model.Street@((Model.Number is null)?"":$", {Model.Number}")</h3>
 
-<h5>@Model.Diffusion.DiffusionDate</h5>
-<ul>
+<h5>@Model.Diffusion.DiffusionDate.ToString("dd MMMM yyyy")</h5>
+<ul class="flexColumn">
     @foreach (DiffusionListItem diffusion in Model.Diffusion.Diffusions)
     {
         <li>
-            <a asp-controller="Movie" asp-action="Details" asp-route-id="@diffusion.Id_Movie">
+            <div class="diffusion">
+                <a asp-controller="Movie" asp-action="Details" asp-route-id="@diffusion.Id_Movie">
+                    <div class="movieDiffusion">
+                        <img src="~/assets/posters/@diffusion.PosterUrl" alt="@diffusion.Title" />
+                        <div>
+                            <h3>
+                                @diffusion.Title@((diffusion.SubTitle is null)?"" : " - "+ diffusion.SubTitle)
+                            </h3>
+                            <h5>(@((diffusion.Duration/60) + ":" + (diffusion.Duration%60)))</h5>
+                        </div>
+                        <hr />
+                    </div>
+                </a>
                 <div>
-                    @diffusion.Title - @diffusion.SubTitle (@diffusion.Duration)
+                    <ul class="flexRow">
+                        @foreach (SubDiffusionListItem time in diffusion.DiffusionTimes)
+                        {
+                            <li>
+                                <div class="timeDiffusion">
+                                    <div>
+                                        <h4>@time.DiffusionTime.ToString(@"hh\:mm")</h4>
+                                    </div>
+                                    <div>
+                                        @{
+                                            switch (time.DiffusionLanguage)
+                                            {
+                                                case DiffusionLanguage.VF:
+                                                    <span>VF</span>
+                                                    break;
+                                                case DiffusionLanguage.VO:
+                                                    <span>VO</span>
+                                                    break;
+                                                case DiffusionLanguage.VOSTFR:
+                                                    <span>VOSTFR</span>
+                                                    break;
+                                            }
+                                        } 
+                                        @{
+                                            switch (time.DiffusionType)
+                                            {
+                                                case DiffusionType.Normal:
+                                                    <span></span>
+                                                    break;
+                                                case DiffusionType.Is3D:
+                                                    <span class="3D">3D</span>
+                                                    break;
+                                                case DiffusionType.Is4DX:
+                                                    <span class="4DX">4DX</span>
+                                                    break;
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                    </ul>
                 </div>
-            </a>
-            <div>
-                <ul>
-                    @foreach (SubDiffusionListItem time in diffusion.DiffusionTimes)
-                    {
-                        <li>
-                            <div>
-                                @time.DiffusionTime
-                            </div>
-                        </li>
-                    }
-                </ul>
             </div>
         </li>
     }

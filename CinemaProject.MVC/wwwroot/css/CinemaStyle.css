@@ -1,0 +1,115 @@
+﻿
+
+h5 {
+    color: gray;
+}
+
+hr {
+    clear: both;
+    border: none;
+}
+
+.selectionPanel {
+    display: flex;
+}
+
+    .selectionPanel > div {
+        flex-grow: 6;
+    }
+
+.selectionPanel li {
+    margin-right : 20px;
+}
+
+ul.flexRow {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding: 0;
+}
+
+a{
+    color : black;
+    text-decoration : none;
+}
+
+ul.flexColumn {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+}
+
+.movieDiffusion {
+    display:inline;
+}
+
+.movieDiffusion>img{
+    width : 15%;
+    float: left;
+    border-radius : 3%;
+}
+
+.movieDiffusion>div{
+    float : left;
+    padding-left : 24px;
+}
+
+.timeDiffusion{
+    padding : 25px 32px;
+    margin : 32px 64px 32px 16px;
+    border : 1px rgba(0,0,0,0.2) solid;
+    border-radius : 9%;
+    box-shadow : rgba(0,0,0,0.2) 0px 3px 15px;
+}
+
+.diffusion{
+    width : 100%;
+    box-shadow : rgba(0,0,0,0.5) 0px 10px 32px;
+    margin : 16px 0px 72px;
+    background-color : white;
+    padding : 32px;
+}
+
+span.\33 D {
+    background-color: orange;
+    color: white;
+    padding: 2px 5px 4px;
+    border-radius: 35%;
+    font-weight: bold;
+}
+span.\34 DX {
+    background-color: grey;
+    color: white;
+    padding: 2px 5px 4px;
+    border-radius: 35%;
+    font-weight: bold;
+}
+
+.movie{
+    background-color : darkslateblue;
+    padding : 5%;
+}
+
+.movieText{
+    width : 70%;
+    float:left;
+    color : white;
+}
+.movie h5{
+    color:white;
+}
+
+.movieText>div {
+    padding-bottom: 10%;
+}
+
+.moviePoster{
+    width : 25%;
+    float:right;
+}
+.moviePoster img {
+    width : 100%;
+    border-radius : 3%;
+    border: 10px rgba(0,0,0,0.2) solid;
+}

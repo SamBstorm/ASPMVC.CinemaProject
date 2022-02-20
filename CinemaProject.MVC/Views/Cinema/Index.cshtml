@@ -1,16 +1,28 @@
 ﻿@using CinemaProject.MVC.Controllers
 @model IEnumerable<CinemaSelection>
+@section CSS{ 
+    <link href="~/css/CinemaStyle.css" rel="stylesheet" />
+}
 
-
-<ul>
-    @foreach (var item in Model)
-    {
-    <li>
-        <a asp-controller="Cinema" asp-action="@nameof(CinemaController.Diffusions)" asp-route-id="@item.Id_CinemaPlace">
-            <div>
-                <strong>@item.Name</strong> (@item.City)
-            </div>
-        </a>
-    </li>
-    }
-</ul>
+<div>
+    <h1>@Model.Count() Cinéma@((@Model.Count()>1)?"s":"")</h1>
+    <div class="selectionPanel">
+        <div>
+            <img src="~/assets/map-be.svg" alt="Belgium map" />
+        </div>
+        <div>
+            <ul class="flexRow">
+                @foreach (var item in Model)
+                {
+                    <li>
+                        <a asp-controller="Cinema" asp-action="@nameof(CinemaController.Diffusions)" asp-route-id="@item.Id_CinemaPlace">
+                            <div>
+                                <strong>@item.Name</strong> (@item.City)
+                            </div>
+                        </a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
