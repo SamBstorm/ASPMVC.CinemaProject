@@ -15,6 +15,6 @@ namespace CinemaProject.BLL.Entities
         public string Number { get; set; }
         public int ZipCode { get; set; }
         public IEnumerable<CinemaRoom> Rooms {get;set;}
-        public IEnumerable<Diffusion> Diffusions {get;set; }
+        public IEnumerable<DiffusionMovie> Diffusions {get;set; }
     }
 }

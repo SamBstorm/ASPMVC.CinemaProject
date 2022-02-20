@@ -1,11 +1,12 @@
-﻿@model IEnumerable<CinemaSelection>
+﻿@using CinemaProject.MVC.Controllers
+@model IEnumerable<CinemaSelection>
 
 
 <ul>
     @foreach (var item in Model)
     {
     <li>
-        <a asp-controller="Cinema" asp-action="Diffusion" asp-route-id="@item.Id_CinemaPlace">
+        <a asp-controller="Cinema" asp-action="@nameof(CinemaController.Diffusions)" asp-route-id="@item.Id_CinemaPlace">
             <div>
                 <strong>@item.Name</strong> (@item.City)
             </div>

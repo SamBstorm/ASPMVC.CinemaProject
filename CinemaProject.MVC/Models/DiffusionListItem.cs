@@ -11,7 +11,8 @@ namespace CinemaProject.MVC.Models
         public int Id_Movie { get; set; }
         public string Title { get; set; }
         public string SubTitle { get; set; }
-        public TimeSpan Duration { get; set; }
+        public string PosterUrl { get; set; }
+        public int Duration { get; set; }
         public IEnumerable<SubDiffusionListItem> DiffusionTimes { get; set; }
     }
 }

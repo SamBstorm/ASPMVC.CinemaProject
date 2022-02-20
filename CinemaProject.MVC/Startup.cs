@@ -5,10 +5,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using D = CinemaProject.DAL;
+using B = CinemaProject.BLL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CinemaProject.Common.Repositories;
 
 namespace CinemaProject.MVC
 {
@@ -28,6 +31,15 @@ namespace CinemaProject.MVC
             services.AddDbContext<CinemaContext>(ob => ob.UseSqlServer(
                 Configuration.GetConnectionString("default")
                 ));
+
+            services.AddScoped<ICinemaPlaceRepository<D.Entities.CinemaPlace>, D.Repositories.CinemaPlaceService>();
+            services.AddScoped<ICinemaPlaceRepository<B.Entities.CinemaPlace>, B.Repositories.CinemaPlaceService>();
+            services.AddScoped<ICinemaRoomRepository<D.Entities.CinemaRoom>, D.Repositories.CinemaRoomService>();
+            //services.AddScoped<ICinemaRoomRepository<B.Entities.CinemaRoom>, B.Repositories.CinemaRoomService>();
+            services.AddScoped<IDiffusionRepository<D.Entities.Diffusion>, D.Repositories.DiffusionService>();
+            services.AddScoped<B.Repositories.IDiffusionRepository, B.Repositories.DiffusionService>();
+            services.AddScoped<IMovieRepository<D.Entities.Movie>, D.Repositories.MovieService>();
+            services.AddScoped<IMovieRepository<B.Entities.Movie>, B.Repositories.MovieService>();
 
             // Enable CORS
             services.AddCors(options => options.AddPolicy("default", b =>
@@ -60,7 +72,7 @@ namespace CinemaProject.MVC
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Cinema}/{action=Index}/{id?}");
             });
         }
     }

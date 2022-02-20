@@ -1,4 +1,5 @@
-﻿using CinemaProject.DAL.Entities;
+﻿using CinemaProject.Common.Enums;
+using CinemaProject.DAL.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -35,36 +36,36 @@ namespace CinemaProject.DAL
             new CinemaRoom{ Id_CinemaRoom = 10, Number = 3, SitsCount = 629, ScreenWidth = 2400 , ScreenHeight = 1021, Can3D = false, Can4DX = false, Id_CinemaPlace = 3}
         };
         private IEnumerable<Diffusion> _diffusions = new Diffusion[] { 
-            new Diffusion { Id_Diffusion = 1, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(13,45,0),Id_Movie = 4, AudLang=Enums.Languages.French, SubTitleLang=null, Id_CinemaRoom = 1 },
-            new Diffusion { Id_Diffusion = 2, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(13,30,0),Id_Movie = 4, AudLang=Enums.Languages.French, SubTitleLang=null, Id_CinemaRoom = 7 },
-            new Diffusion { Id_Diffusion = 3, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(15,50,0),Id_Movie = 4, AudLang=Enums.Languages.French, SubTitleLang=null, Id_CinemaRoom = 1 },
-            new Diffusion { Id_Diffusion = 4, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(16,5,0),Id_Movie = 4, AudLang=Enums.Languages.French, SubTitleLang=null, Id_CinemaRoom = 7 },
-            new Diffusion { Id_Diffusion = 5, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(17,30,0),Id_Movie = 4, AudLang=Enums.Languages.French, SubTitleLang=null, Id_CinemaRoom = 8 },
-            new Diffusion { Id_Diffusion = 6, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(13,15,0),Id_Movie = 4, AudLang=Enums.Languages.French, SubTitleLang=null, Id_CinemaRoom = 6 },
-            new Diffusion { Id_Diffusion = 7, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(15,50,0),Id_Movie = 4, AudLang=Enums.Languages.French, SubTitleLang=null, Id_CinemaRoom = 6 },
-            new Diffusion { Id_Diffusion = 8, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(17,30,0),Id_Movie = 4, AudLang=Enums.Languages.French, SubTitleLang=null, Id_CinemaRoom = 9 },
-            new Diffusion { Id_Diffusion = 9, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(13,30,0),Id_Movie = 1, AudLang=Enums.Languages.French, SubTitleLang=null, Id_CinemaRoom = 8 },
-            new Diffusion { Id_Diffusion = 10, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(17,0,0),Id_Movie = 1, AudLang=Enums.Languages.French, SubTitleLang=null, Id_CinemaRoom = 8 },
-            new Diffusion { Id_Diffusion = 11, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(20,0,0),Id_Movie = 1, AudLang=Enums.Languages.Original, SubTitleLang=Enums.Languages.French, Id_CinemaRoom = 8 },
-            new Diffusion { Id_Diffusion = 12, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(13,30,0),Id_Movie = 1, AudLang=Enums.Languages.French, SubTitleLang=null, Id_CinemaRoom = 3 },
-            new Diffusion { Id_Diffusion = 13, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(17,0,0),Id_Movie = 1, AudLang=Enums.Languages.French, SubTitleLang=null, Id_CinemaRoom = 3 },
-            new Diffusion { Id_Diffusion = 14, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(20,0,0),Id_Movie = 1, AudLang=Enums.Languages.French, SubTitleLang=null, Id_CinemaRoom = 3 },
-            new Diffusion { Id_Diffusion = 15, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(18,15,0),Id_Movie = 2, AudLang=Enums.Languages.French, SubTitleLang=null, Id_CinemaRoom = 2 },
-            new Diffusion { Id_Diffusion = 16, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(21,15,0),Id_Movie = 2, AudLang=Enums.Languages.French, SubTitleLang=null, Id_CinemaRoom = 2 },
-            new Diffusion { Id_Diffusion = 17, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(14,0,0),Id_Movie = 2, AudLang=Enums.Languages.Original, SubTitleLang=Enums.Languages.French, Id_CinemaRoom = 9 },
-            new Diffusion { Id_Diffusion = 18, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(16,0,0),Id_Movie = 2, AudLang=Enums.Languages.French, SubTitleLang=null, Id_CinemaRoom = 6 },
-            new Diffusion { Id_Diffusion = 19, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(20,0,0),Id_Movie = 2, AudLang=Enums.Languages.French, SubTitleLang=null, Id_CinemaRoom = 9 },
-            new Diffusion { Id_Diffusion = 30, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(13,15,0),Id_Movie = 3, AudLang=Enums.Languages.French, SubTitleLang=null, Id_CinemaRoom = 4 },
-            new Diffusion { Id_Diffusion = 20, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(15,30,0),Id_Movie = 3, AudLang=Enums.Languages.French, SubTitleLang=null, Id_CinemaRoom = 4 },
-            new Diffusion { Id_Diffusion = 21, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(18,0,0),Id_Movie = 3, AudLang=Enums.Languages.Original, SubTitleLang=Enums.Languages.French, Id_CinemaRoom = 4 },
-            new Diffusion { Id_Diffusion = 22, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(13,15,0),Id_Movie = 3, AudLang=Enums.Languages.French, SubTitleLang=null, Id_CinemaRoom = 6 },
-            new Diffusion { Id_Diffusion = 23, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(16,30,0),Id_Movie = 3, AudLang=Enums.Languages.French, SubTitleLang=null, Id_CinemaRoom = 10 },
-            new Diffusion { Id_Diffusion = 24, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(18,15,0),Id_Movie = 3, AudLang=Enums.Languages.French, SubTitleLang=null, Id_CinemaRoom = 10 },
-            new Diffusion { Id_Diffusion = 25, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(14,15,0),Id_Movie = 5, AudLang=Enums.Languages.French, SubTitleLang=null, Id_CinemaRoom = 8 },
-            new Diffusion { Id_Diffusion = 26, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(16,45,0),Id_Movie = 5, AudLang=Enums.Languages.French, SubTitleLang=null, Id_CinemaRoom = 8 },
-            new Diffusion { Id_Diffusion = 27, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(14,15,0),Id_Movie = 5, AudLang=Enums.Languages.French, SubTitleLang=null, Id_CinemaRoom = 5 },
-            new Diffusion { Id_Diffusion = 28, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(16,45,0),Id_Movie = 5, AudLang=Enums.Languages.French, SubTitleLang=null, Id_CinemaRoom = 5 },
-            new Diffusion { Id_Diffusion = 29, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(18,15,0),Id_Movie = 5, AudLang=Enums.Languages.French, SubTitleLang=null, Id_CinemaRoom = 5 }
+            new Diffusion { Id_Diffusion = 1, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(13,45,0),Id_Movie = 4, AudLang=Languages.French, SubTitleLang=null, Id_CinemaRoom = 1 },
+            new Diffusion { Id_Diffusion = 2, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(13,30,0),Id_Movie = 4, AudLang=Languages.French, SubTitleLang=null, Id_CinemaRoom = 7 },
+            new Diffusion { Id_Diffusion = 3, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(15,50,0),Id_Movie = 4, AudLang=Languages.French, SubTitleLang=null, Id_CinemaRoom = 1 },
+            new Diffusion { Id_Diffusion = 4, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(16,5,0),Id_Movie = 4, AudLang=Languages.French, SubTitleLang=null, Id_CinemaRoom = 7 },
+            new Diffusion { Id_Diffusion = 5, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(17,30,0),Id_Movie = 4, AudLang=Languages.French, SubTitleLang=null, Id_CinemaRoom = 8 },
+            new Diffusion { Id_Diffusion = 6, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(13,15,0),Id_Movie = 4, AudLang=Languages.French, SubTitleLang=null, Id_CinemaRoom = 6 },
+            new Diffusion { Id_Diffusion = 7, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(15,50,0),Id_Movie = 4, AudLang=Languages.French, SubTitleLang=null, Id_CinemaRoom = 6 },
+            new Diffusion { Id_Diffusion = 8, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(17,30,0),Id_Movie = 4, AudLang=Languages.French, SubTitleLang=null, Id_CinemaRoom = 9 },
+            new Diffusion { Id_Diffusion = 9, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(13,30,0),Id_Movie = 1, AudLang=Languages.French, SubTitleLang=null, Id_CinemaRoom = 8 },
+            new Diffusion { Id_Diffusion = 10, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(17,0,0),Id_Movie = 1, AudLang=Languages.French, SubTitleLang=null, Id_CinemaRoom = 8 },
+            new Diffusion { Id_Diffusion = 11, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(20,0,0),Id_Movie = 1, AudLang=Languages.Original, SubTitleLang=Languages.French, Id_CinemaRoom = 8 },
+            new Diffusion { Id_Diffusion = 12, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(13,30,0),Id_Movie = 1, AudLang=Languages.French, SubTitleLang=null, Id_CinemaRoom = 3 },
+            new Diffusion { Id_Diffusion = 13, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(17,0,0),Id_Movie = 1, AudLang=Languages.French, SubTitleLang=null, Id_CinemaRoom = 3 },
+            new Diffusion { Id_Diffusion = 14, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(20,0,0),Id_Movie = 1, AudLang=Languages.French, SubTitleLang=null, Id_CinemaRoom = 3 },
+            new Diffusion { Id_Diffusion = 15, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(18,15,0),Id_Movie = 2, AudLang=Languages.French, SubTitleLang=null, Id_CinemaRoom = 2 },
+            new Diffusion { Id_Diffusion = 16, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(21,15,0),Id_Movie = 2, AudLang=Languages.French, SubTitleLang=null, Id_CinemaRoom = 2 },
+            new Diffusion { Id_Diffusion = 17, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(14,0,0),Id_Movie = 2, AudLang=Languages.Original, SubTitleLang=Languages.French, Id_CinemaRoom = 9 },
+            new Diffusion { Id_Diffusion = 18, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(16,0,0),Id_Movie = 2, AudLang=Languages.French, SubTitleLang=null, Id_CinemaRoom = 6 },
+            new Diffusion { Id_Diffusion = 19, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(20,0,0),Id_Movie = 2, AudLang=Languages.French, SubTitleLang=null, Id_CinemaRoom = 9 },
+            new Diffusion { Id_Diffusion = 30, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(13,15,0),Id_Movie = 3, AudLang=Languages.French, SubTitleLang=null, Id_CinemaRoom = 4 },
+            new Diffusion { Id_Diffusion = 20, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(15,30,0),Id_Movie = 3, AudLang=Languages.French, SubTitleLang=null, Id_CinemaRoom = 4 },
+            new Diffusion { Id_Diffusion = 21, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(18,0,0),Id_Movie = 3, AudLang=Languages.Original, SubTitleLang=Languages.French, Id_CinemaRoom = 4 },
+            new Diffusion { Id_Diffusion = 22, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(13,15,0),Id_Movie = 3, AudLang=Languages.French, SubTitleLang=null, Id_CinemaRoom = 6 },
+            new Diffusion { Id_Diffusion = 23, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(16,30,0),Id_Movie = 3, AudLang=Languages.French, SubTitleLang=null, Id_CinemaRoom = 10 },
+            new Diffusion { Id_Diffusion = 24, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(18,15,0),Id_Movie = 3, AudLang=Languages.French, SubTitleLang=null, Id_CinemaRoom = 10 },
+            new Diffusion { Id_Diffusion = 25, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(14,15,0),Id_Movie = 5, AudLang=Languages.French, SubTitleLang=null, Id_CinemaRoom = 8 },
+            new Diffusion { Id_Diffusion = 26, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(16,45,0),Id_Movie = 5, AudLang=Languages.French, SubTitleLang=null, Id_CinemaRoom = 8 },
+            new Diffusion { Id_Diffusion = 27, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(14,15,0),Id_Movie = 5, AudLang=Languages.French, SubTitleLang=null, Id_CinemaRoom = 5 },
+            new Diffusion { Id_Diffusion = 28, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(16,45,0),Id_Movie = 5, AudLang=Languages.French, SubTitleLang=null, Id_CinemaRoom = 5 },
+            new Diffusion { Id_Diffusion = 29, DiffusionDate = new DateTime(2022,2,16), DiffusionTime = new TimeSpan(18,15,0),Id_Movie = 5, AudLang=Languages.French, SubTitleLang=null, Id_CinemaRoom = 5 }
         };
 
         public CinemaContext()

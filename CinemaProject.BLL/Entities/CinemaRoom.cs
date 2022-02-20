@@ -10,7 +10,7 @@ namespace CinemaProject.BLL.Entities
     {
         public int Id_CinemaRoom { get; set; }
         public CinemaPlace CinemaPlace { get; set; }
-        public string Number { get; set; }
+        public int Number { get; set; }
         public int SitsCount { get; set; }
         public int ScreenWidth { get; set; }
         public int ScreenHeight { get; set; }

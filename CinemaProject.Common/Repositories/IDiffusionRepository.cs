@@ -10,5 +10,6 @@ namespace CinemaProject.Common.Repositories
     {
         public IEnumerable<TDiffusion> GetByCinema(int id);
         public IEnumerable<TDiffusion> GetByMovie(int id);
+        public IEnumerable<TDiffusion> GetByCinemaAtDate(int id, DateTime date);
     }
 }

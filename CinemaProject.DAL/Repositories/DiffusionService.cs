@@ -43,6 +43,11 @@ namespace CinemaProject.DAL.Repositories
             return Get().Where(d => d.CinemaRoom.Id_CinemaPlace == id);
         }
 
+        public IEnumerable<Diffusion> GetByCinemaAtDate(int id, DateTime date)
+        {
+            return GetByCinema(id).Where(d => d.DiffusionDate == date);
+        }
+
         public IEnumerable<Diffusion> GetByMovie(int id)
         {
             return Get().Where(d => d.Id_Movie == id);
